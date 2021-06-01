@@ -16,6 +16,8 @@ export class UploadComponent implements OnInit {
   picture: string;
   subPictures = [];
   validateForm!: FormGroup;
+  brands = ['Volkswagen', 'Honda', 'Buick', 'Toyota', 'Ford', 'Nissan', 'BMW',
+    'Mercedes-Benz', 'Hyundai', 'Audi', 'Chevrolet', 'Cadillac', 'Jeep'];
 
   constructor(
     private fb: FormBuilder,
@@ -74,7 +76,7 @@ export class UploadComponent implements OnInit {
     }
 
     if (this.validateForm.valid) {
-      let user: any = localStorage.getItem('user');
+      let user: any = sessionStorage.getItem('user');
       user = JSON.parse(user);
       const { brand, name, year, mileage, displacement, amt, price } = this.validateForm.value;
       const carInfo = {

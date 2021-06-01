@@ -19,7 +19,7 @@ export class SellerComponent implements OnInit {
         this.currentUrl = event.url;
       }
     });
-    const user = localStorage.getItem('user');
+    const user = sessionStorage.getItem('user');
     this.user = JSON.parse(user);
   }
 

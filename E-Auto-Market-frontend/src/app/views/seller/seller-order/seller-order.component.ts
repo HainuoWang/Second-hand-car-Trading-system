@@ -23,7 +23,7 @@ export class SellerOrderComponent implements OnInit {
   }
 
   getSellCars(): void {
-    let user: any = localStorage.getItem('user');
+    let user: any = sessionStorage.getItem('user');
     user = JSON.parse(user);
     this.orderService.getOrders(null, user.id).subscribe(resp => {
       this.orders = resp;

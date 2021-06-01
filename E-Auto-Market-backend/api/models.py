@@ -31,7 +31,7 @@ class Car(models.Model):
     mileage = models.IntegerField(null=True, blank=True)
     displacement = models.CharField(max_length=20)
     amt = models.CharField(max_length=20)
-    status = models.IntegerField()
+    status = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='car_user')
 
 

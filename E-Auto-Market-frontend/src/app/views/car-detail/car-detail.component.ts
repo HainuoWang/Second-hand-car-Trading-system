@@ -82,7 +82,7 @@ export class CarDetailComponent implements OnInit {
       nzTitle: 'Do you Want to Buy the car?',
       nzContent: 'When you buy, please check the results in the shopping list',
       nzOnOk: () => {
-        let user: any = localStorage.getItem('user');
+        let user: any = sessionStorage.getItem('user');
         user = JSON.parse(user);
         this.orderService.createOrder(user.id, this.car.id, this.car.user).subscribe(resp => {
           this.message.success('buy success!');

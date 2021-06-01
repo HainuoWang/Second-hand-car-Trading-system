@@ -38,7 +38,10 @@
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="brand">Brand</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input brand">
-      <input nz-input formControlName="brand" id="brand" />
+<!--      <input nz-input formControlName="brand" id="brand" />-->
+      <nz-select formControlName="brand">
+        <nz-option *ngFor="let brand of brands" [nzValue]="brand" [nzLabel]="brand"></nz-option>
+      </nz-select>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>

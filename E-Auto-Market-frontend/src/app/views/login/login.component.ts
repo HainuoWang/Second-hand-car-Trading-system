@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       }
       const { email, password } = this.signInForm.value;
       this.userService.login(email, password).subscribe(resp => {
-        localStorage.setItem('user', JSON.stringify(resp));
+        sessionStorage.setItem('user', JSON.stringify(resp));
         if (resp.roles === 1) {
           this.router.navigate(['/list'], { replaceUrl: true });
         } else {

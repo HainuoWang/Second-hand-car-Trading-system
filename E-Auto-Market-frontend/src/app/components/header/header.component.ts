@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router
   ) {
-    const user = localStorage.getItem('user');
+    const user = sessionStorage.getItem('user');
     this.user = JSON.parse(user);
   }
 
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.clear();
+    sessionStorage.clear();
     this.router.navigate(['/login'], { replaceUrl: true });
   }
 

@@ -16,7 +16,7 @@ export class SellerWalletComponent implements OnInit {
     private userService: UserService,
     private message: NzMessageService,
   ) {
-    const user = localStorage.getItem('user');
+    const user = sessionStorage.getItem('user');
     this.user = JSON.parse(user);
   }
 
@@ -33,7 +33,7 @@ export class SellerWalletComponent implements OnInit {
       this.user.balance += price;
       this.userService.updateUser(this.user).subscribe(resp => {
         this.message.success('top up success!');
-        localStorage.setItem('user', JSON.stringify(this.user));
+        sessionStorage.setItem('user', JSON.stringify(this.user));
         this.isVisible = false;
       }, error => {
         this.message.error('top up error!');
