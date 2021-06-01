@@ -27,4 +27,12 @@ export class HeaderComponent implements OnInit {
   goBack(): void {
     history.back();
   }
+
+  goHome(): void {
+    if (this.user.roles === 1) {
+      this.router.navigate(['/list']);
+    } else {
+      this.router.navigate(['/seller']);
+    }
+  }
 }

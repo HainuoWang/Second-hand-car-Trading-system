@@ -203,10 +203,6 @@ class OrderViewSet(ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         if car.status == 1:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        car.status = 1
-        serializer_car = CarSerializer(car, data={}, partial=True)
-        serializer_car.is_valid(raise_exception=True)
-        serializer_car.save()
 
         # update user
         user = User.objects.all().get(id=user_id)
@@ -214,6 +210,12 @@ class OrderViewSet(ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         if user.balance < car.price:
             return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        car.status = 1
+        serializer_car = CarSerializer(car, data={}, partial=True)
+        serializer_car.is_valid(raise_exception=True)
+        serializer_car.save()
+
         user.balance = user.balance - car.price
         serializer_user = UserSerializer(user, data={}, partial=True)
         serializer_user.is_valid(raise_exception=True)
