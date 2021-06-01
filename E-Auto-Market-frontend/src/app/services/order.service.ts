@@ -33,4 +33,8 @@ export class OrderService {
   deleteOrder(orderId: string): Observable<any> {
     return this.http.delete('/api/order/' + orderId + '/');
   }
+
+  updateOrderStatus(orderId: string): Observable<any> {
+    return this.http.patch('/api/order/' + orderId + '/', {});
+  }
 }

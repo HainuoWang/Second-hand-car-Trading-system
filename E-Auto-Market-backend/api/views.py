@@ -8,6 +8,7 @@ from django.contrib.auth.hashers import make_password, check_password
 # Create your views here.
 from django.core.mail import send_mail
 from django.db.models import Q
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
@@ -216,10 +217,10 @@ class OrderViewSet(ViewSet):
         serializer_car.is_valid(raise_exception=True)
         serializer_car.save()
 
-        user.balance = user.balance - car.price
-        serializer_user = UserSerializer(user, data={}, partial=True)
-        serializer_user.is_valid(raise_exception=True)
-        serializer_user.save()
+        # user.balance = user.balance - car.price
+        # serializer_user = UserSerializer(user, data={}, partial=True)
+        # serializer_user.is_valid(raise_exception=True)
+        # serializer_user.save()
 
         serializer = OrderSerializer(data=order)
         serializer.is_valid(raise_exception=True)
@@ -237,6 +238,33 @@ class OrderViewSet(ViewSet):
             orders = orders.filter(seller=seller_id)
 
         serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data)
+
+    def partial_update(self, request, pk=None):
+        order = Order.objects.all().get(id=pk)
+
+        seller_id = order.seller_id
+        user_id = order.user_id
+        car_id = order.car_id
+
+        car = Car.objects.all().get(id=car_id)
+
+        buyer = User.objects.all().get(id=user_id)
+        buyer.balance = buyer.balance - car.price
+        buyer_serializer = UserSerializer(buyer, data=model_to_dict(buyer), partial=True)
+        buyer_serializer.is_valid(raise_exception=True)
+        buyer_serializer.save()
+
+        seller = User.objects.all().get(id=seller_id)
+        seller.balance = seller.balance + car.price
+        seller_serializer = UserSerializer(seller, data=model_to_dict(seller), partial=True)
+        seller_serializer.is_valid(raise_exception=True)
+        seller_serializer.save()
+
+        order.status = 1
+        serializer = OrderSerializer(order, data=model_to_dict(order), partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
         return Response(serializer.data)
 
     def destroy(self, request, pk=None):

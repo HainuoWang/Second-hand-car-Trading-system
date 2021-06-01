@@ -40,3 +40,4 @@ class Order(models.Model):
     car = models.ForeignKey(Car, on_delete=models.DO_NOTHING, related_name='cars')
     seller = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='sellers')
     create_date = models.DateField('create date', null=True, blank=True)
+    status = models.IntegerField(default=0)

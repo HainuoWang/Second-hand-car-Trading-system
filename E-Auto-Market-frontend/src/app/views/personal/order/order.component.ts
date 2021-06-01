@@ -10,12 +10,16 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class OrderComponent implements OnInit {
   orders = [];
+  user: any = {};
 
   constructor(
     private orderService: OrderService,
     private modal: NzModalService,
     private message: NzMessageService,
-  ) { }
+  ) {
+    const user = sessionStorage.getItem('user');
+    this.user = JSON.parse(user);
+  }
 
   ngOnInit(): void {
     this.getAllOrders();
@@ -29,7 +33,7 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  showConfirm(order: any): void {
+  showConfirmDelete(order: any): void {
     this.modal.confirm({
       nzTitle: 'Do you Want to Delete the order?',
       nzContent: 'After deletion, the relevant data will be deleted accordingly',
@@ -39,6 +43,21 @@ export class OrderComponent implements OnInit {
           this.getAllOrders();
         }, error => {
           this.message.error('delete error');
+        });
+      }
+    });
+  }
+
+  showConfirm(order): void {
+    this.modal.confirm({
+      nzTitle: 'Do you Want to Confirm the order?',
+      nzContent: 'After Confirm, your wallet will be deducted',
+      nzOnOk: () => {
+        this.orderService.updateOrderStatus(order.id).subscribe(resp => {
+          this.message.success('confirm success');
+          this.getAllOrders();
+        }, error => {
+          this.message.error('confirm error');
         });
       }
     });
