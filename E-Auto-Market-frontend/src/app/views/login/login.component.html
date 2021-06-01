@@ -20,6 +20,14 @@
             </nz-input-group>
           </nz-form-control>
         </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="code required!">
+            <nz-input-group nzPrefixIcon=" ">
+              <input type="text" nz-input formControlName="code" placeholder="Code" />
+            </nz-input-group>
+          </nz-form-control>
+          <canvas #verifyCode type="text" style="margin-left: 10px;height: 40px" (click)="initVerifyCode()" disabled="disabled" ></canvas>
+        </nz-form-item>
         <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
       </form>
       <form *ngIf="tabIndex === 1" nz-form [formGroup]="signUpForm" class="login-form" (ngSubmit)="submitSignUp()">

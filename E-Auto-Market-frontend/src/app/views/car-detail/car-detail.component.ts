@@ -84,7 +84,7 @@ export class CarDetailComponent implements OnInit {
       nzOnOk: () => {
         let user: any = localStorage.getItem('user');
         user = JSON.parse(user);
-        this.orderService.createOrder(user.id, this.car.id, this.car.user_id).subscribe(resp => {
+        this.orderService.createOrder(user.id, this.car.id, this.car.user).subscribe(resp => {
           this.message.success('buy success!');
         }, error => {
           if (error.status === 406) {

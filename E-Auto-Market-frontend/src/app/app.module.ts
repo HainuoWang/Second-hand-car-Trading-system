@@ -23,6 +23,8 @@ import { SellerComponent } from './views/seller/seller.component';
 import { SellerOrderComponent } from './views/seller/seller-order/seller-order.component';
 import { SellerWalletComponent } from './views/seller/seller-wallet/seller-wallet.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
+import { SecurityComponent } from './views/personal/security/security.component';
+import { SellerSecurityComponent } from './views/seller/seller-security/seller-security.component';
 
 registerLocaleData(en);
 
@@ -40,7 +42,9 @@ registerLocaleData(en);
     SellerComponent,
     SellerOrderComponent,
     SellerWalletComponent,
-    SignUpComponent
+    SignUpComponent,
+    SecurityComponent,
+    SellerSecurityComponent
   ],
   imports: [
     BrowserModule,

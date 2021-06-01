@@ -1,0 +1,20 @@
+<div class="container">
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submit()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your new password!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzErrorTip]="this.validateForm.controls.cfmPassword.hasError('confirm') ?
+          'Please keep the same as the original password': 'Please input your confirm password'">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="cfmPassword" placeholder="Confirm password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <button nz-button [nzType]="'primary'">Submit</button>
+  </form>
+</div>

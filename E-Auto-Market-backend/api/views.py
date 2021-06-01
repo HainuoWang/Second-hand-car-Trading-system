@@ -50,6 +50,8 @@ class UserViewSet(ViewSet):
 
     def partial_update(self, request, pk=None):
         user = User.objects.all().get(id=pk)
+        if "password" in request.data:
+            request.data["password"] = make_password(request.data["password"], None, 'pbkdf2_sha256')
         serializer = UserSerializer(user, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

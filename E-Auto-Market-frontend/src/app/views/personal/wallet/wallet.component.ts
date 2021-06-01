@@ -29,7 +29,7 @@ export class WalletComponent implements OnInit {
 
   handleOk(): void {
     const price = Number(this.price);
-    if (!Number.isNaN(this.price)) {
+    if (Number.isInteger(price)) {
       this.user.balance += price;
       this.userService.updateUser(this.user).subscribe(resp => {
         this.message.success('top up success!');
@@ -38,6 +38,8 @@ export class WalletComponent implements OnInit {
       }, error => {
         this.message.error('top up error!');
       });
+    } else {
+      this.message.warning('Please enter a positive integer!');
     }
   }
 

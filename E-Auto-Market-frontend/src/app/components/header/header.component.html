@@ -1,5 +1,6 @@
 <div class="j-header header-2 ">
   <div class="header">
+    <i class="back" nz-icon nzType="arrow-left" nzTheme="outline" (click)="goBack()"></i>
     <h1>E-Auto-Market</h1>
     <nz-avatar nzIcon="user"
                style="background-color:#87d068;cursor: pointer"
@@ -10,12 +11,14 @@
       <ul nz-menu *ngIf="user.roles === 1">
         <li nz-menu-item routerLink="/personal/order">My order</li>
         <li nz-menu-item routerLink="/personal/wallet">My wallet</li>
+        <li nz-menu-item routerLink="/personal/security">Security</li>
         <li nz-menu-item (click)="logout()">Logout</li>
       </ul>
       <ul nz-menu *ngIf="user.roles === 2">
         <li nz-menu-item routerLink="/seller/order">My order</li>
         <li nz-menu-item routerLink="/seller/wallet">My wallet</li>
         <li nz-menu-item routerLink="/seller/upload">Upload</li>
+        <li nz-menu-item routerLink="/seller/security">Security</li>
         <li nz-menu-item (click)="logout()">Logout</li>
       </ul>
     </nz-dropdown-menu>
