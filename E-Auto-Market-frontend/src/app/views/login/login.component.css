@@ -1,0 +1,78 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/images/login.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-wrapper {
+  padding-bottom: 40px;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  margin-left: 250px;
+  width: 340px;
+  background: #fff;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  color: #999;
+  border-radius: 4px;
+}
+
+.tab-box {
+  position: relative;
+  padding: 40px 0 20px;
+  color: #686868;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.login-wrapper .tab-box:before {
+  height: 16px;
+  width: 1px;
+  background: #e5e5e5;
+  content: " ";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 3px;
+}
+
+.clrfix:after {
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+  content: ".";
+}
+
+.tab-box aside {
+  width: 50%;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-box aside.cur {
+  color: #1890ff;
+  font-weight: 700;
+}
+
+.login-form {
+  max-width: 300px;
+  margin: 10px auto 0;
+}
+.login-form-button {
+  width: 100%;
+  height: 40px;
+}
+
+.login-form input {
+  height: 30px;
+}
+
+.code-wrapper input, .code-wrapper button {
+  height: 40px;
+}

@@ -1,0 +1,45 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="list-wrap">
+    <div class="crumbs-search">
+      <nz-input-group class="search-group" [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input [(ngModel)]="keyword" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search" (click)="getCars()"></i>
+      </ng-template>
+    </div>
+    <div class="screen">
+      <dl>
+        <dt>Brand</dt>
+        <dd>
+          <div class="dd-top">
+            <a [class.active]="!brand" (click)="brand = '';getCars()">All</a>
+            <a *ngFor="let b of brands" [class.active]="brand === b" (click)="brand = b;getCars()">{{ b }}</a>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>Price</dt>
+        <dd>
+          <div class="dd-top">
+            <a [class.active]="!currentPrice" (click)="currentPrice = null;getCars()">All</a>
+            <a *ngFor="let p of prices" [class.active]="currentPrice === p" (click)="currentPrice = p;getCars()"> {{ p.name }}</a>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <ul class="carlist">
+      <li *ngFor="let car of cars">
+        <a class="car-a" [routerLink]="'/detail/' + car.id">
+          <img [src]="'/api/picture/' + car.picture + '/'" />
+          <h2 class="t">{{ car.name }}</h2>
+          <div class="t-i">{{ car.year }}<span class="icon-pad">|</span>{{ car.mileage | number }} km<span class="icon-pad">|</span>4.8<img src="assets/images/star.svg"/></div>
+          <div class="t-price">
+            <p>{{ car.price | currency: '£' }}</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

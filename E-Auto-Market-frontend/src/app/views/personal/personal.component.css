@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+.person-main {
+  display: flex;
+  width: 1100px;
+  margin: 33px auto;
+  overflow: hidden;
+}
+
+.person-left {
+  width: 200px;
+  margin-right: 20px;
+}
+.person-right {
+  flex: 1;
+  min-height: 600px;
+  padding: 20px;
+}
+.person-left, .person-right {
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+}
+.user-img {
+  width: 60px;
+  height: 60px;
+  margin: 30px auto 10px;
+  background: url("../../../assets/images/user-photo.png") no-repeat;
+}
+.user-info {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #495056;
+  text-align: center;
+}
+.user-info span {
+  display: block;
+  font-size: 12px;
+  color: #a5abb2;
+}
+.user-menu a {
+  display: block;
+  font-size: 16px;
+  line-height: 50px;
+  color: #495056;
+  text-align: center;
+}
+.user-menu a.active, .user-menu a:hover {
+  color: #fff;
+  background-color: #1890ff;
+  text-decoration: none;
+}

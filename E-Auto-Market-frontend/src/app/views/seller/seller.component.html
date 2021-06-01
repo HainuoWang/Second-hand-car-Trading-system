@@ -1,0 +1,20 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="person-main">
+    <div class="person-left">
+      <p class="user-img"></p>
+      <p class="user-info">Seller Center<span>Email：test@gmail.com</span></p>
+      <ul class="user-menu">
+        <li><a [class.active]="currentUrl === '/seller' || currentUrl === '/seller/order'"
+               routerLink="/seller/order">My Order</a></li>
+        <li><a [class.active]="currentUrl === '/seller/wallet'"
+               routerLink="/seller/wallet">My Wallet</a></li>
+        <li><a [class.active]="currentUrl === '/seller/upload'"
+               routerLink="/seller/upload">Upload Car</a></li>
+      </ul>
+    </div>
+    <div class="person-right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

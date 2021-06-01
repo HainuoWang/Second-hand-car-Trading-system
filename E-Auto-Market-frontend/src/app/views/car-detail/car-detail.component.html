@@ -1,0 +1,55 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="center">
+    <div class="info-main">
+      <div class="product-detail">
+        <div class="fy-info-img flex flex-column" *ngIf="car.sub_pictures">
+          <div class="swiper-container gallery-top">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" *ngFor="let pic of car.sub_pictures.split(',')">
+                <img [src]="'/api/picture/' + pic + '/'" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+          </div>
+          <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" *ngFor="let pic of car.sub_pictures.split(',')">
+                <img [src]="'/api/picture/' + pic + '/'" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-textbox">
+        <div>
+          <h1 class="titlebox">{{ car.name }}</h1>
+          <ul class="assort clearfix">
+            <li class="one"><span>{{ car.year }}</span>Vehicle licensing</li>
+            <li class="two"><span>{{ car.mileage | number }} km</span>mileage</li>
+            <li class="three"><span>{{ car.displacement }}</span>displacement</li>
+            <li class="last"><span>{{ car.amt }}</span>AMT</li>
+          </ul>
+          <div class="price-main">
+            <span class="price-num">{{ car.price | currency: '£' }}</span>
+          </div>
+          <div class="rating">
+            <span class="text">4.8</span>
+            <span class="r">
+              <img src="assets/images/star.svg"/>
+              <img src="assets/images/star.svg"/>
+              <img src="assets/images/star.svg"/>
+              <img src="assets/images/star.svg"/>
+              <img src="assets/images/star-half.svg"/>
+            </span>
+          </div>
+        </div>
+        <div class="actions">
+          <button nz-button nzType="primary" (click)="showConfirm()">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

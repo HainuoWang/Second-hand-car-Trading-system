@@ -1,0 +1,13 @@
+<div class="price-wrapper">
+  <div>My balance: </div>
+  <div class="price">{{ user.balance | currency:'£' }}</div>
+</div>
+<button nz-button nzType="primary" (click)="showModal()">top up</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Top Up" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <nz-input-group nzSuffix="GBP" nzPrefix="￡">
+      <input type="text" nz-input [(ngModel)]="price" />
+    </nz-input-group>
+  </ng-container>
+</nz-modal>
+

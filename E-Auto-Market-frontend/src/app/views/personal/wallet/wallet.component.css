@@ -1,0 +1,13 @@
+.price-wrapper {
+  display: flex;
+  align-items: center;
+}
+.price {
+  font-size: 24px;
+  margin-left: 10px;
+}
+button {
+  width: 120px;
+  height: 40px;
+  margin-top: 20px;
+}

@@ -1,0 +1,16 @@
+.header-2 {
+  box-sizing: border-box;
+  background-color: #fcfcfc;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  height: 55px;
+  margin: 0 auto;
+}
+h1 {
+  margin-bottom: 0;
+  color: #2196f3;
+}

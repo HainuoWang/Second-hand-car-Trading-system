@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="orders">
+  <thead>
+  <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Time</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td class="picture">
+      <img [src]="'/api/picture/' + order.car_picture + '/'">
+    </td>
+    <td>{{ order.car_name }}</td>
+    <td>{{ order.car_price | currency: '£' }}</td>
+    <td>{{ order.create_date }}</td>
+    <td>
+      <a (click)="showConfirm(order)">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

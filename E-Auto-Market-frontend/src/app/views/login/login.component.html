@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="content">
+    <div class="login-wrapper">
+      <header class="tab-box clrfix">
+        <aside id="2" class="fl tab cur-p" [class.cur]="tabIndex === 0" (click)="tabIndex = 0">Sign In</aside>
+        <aside id="1" class="fl tab cur-p" [class.cur]="tabIndex === 1" (click)="tabIndex = 1">Sign Up</aside>
+      </header>
+      <form *ngIf="tabIndex === 0" nz-form [formGroup]="signInForm" class="login-form" (ngSubmit)="submitSignIn()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your email!">
+            <nz-input-group nzPrefixIcon="mail">
+              <input type="text" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+      </form>
+      <form *ngIf="tabIndex === 1" nz-form [formGroup]="signUpForm" class="login-form" (ngSubmit)="submitSignUp()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your email!">
+            <nz-input-group nzPrefixIcon="mail">
+              <input type="text" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="this.signUpForm.controls.cfmPassword.hasError('confirm') ?
+          'Please keep the same as the original password': 'Please input your confirm password'">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="cfmPassword" placeholder="Confirm Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="code-wrapper">
+          <nz-form-control nzErrorTip="Please input validate code!">
+            <div nz-row [nzGutter]="8">
+              <div nz-col nzFlex="1">
+                <input nz-input formControlName="code" id="code" />
+              </div>
+              <div nz-col>
+                <button nz-button nzType="primary" type="button" [disabled]="signUpping" (click)="sendCode()">Send Mail</button>
+              </div>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please select role type!">
+            <nz-radio-group formControlName="role" >
+              <label nz-radio [nzValue]="1">Buyer</label>
+              <label nz-radio [nzValue]="2">Seller</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>

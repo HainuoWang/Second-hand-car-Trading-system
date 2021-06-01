@@ -1,0 +1,18 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="person-main">
+    <div class="person-left">
+      <p class="user-img"></p>
+      <p class="user-info">Personal Center<span>Email：test@gmail.com</span></p>
+      <ul class="user-menu">
+        <li><a [class.active]="currentUrl === '/personal' || currentUrl === '/personal/order'"
+               routerLink="/personal/order">My Order</a></li>
+        <li><a [class.active]="currentUrl === '/personal/wallet'"
+               routerLink="/personal/wallet">My Wallet</a></li>
+      </ul>
+    </div>
+    <div class="person-right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

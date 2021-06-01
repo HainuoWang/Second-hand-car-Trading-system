@@ -1,0 +1,129 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.list-wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.crumbs-search {
+  display: flex;
+  justify-content: flex-end;
+  margin: 50px 0 10px;
+}
+
+.crumbs-search .search-group {
+  width: 300px;
+}
+.screen {
+  border: 1px solid #e6e6e6;
+  border-bottom: none;
+}
+.screen dl {
+  display: flex;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e6e6e6;
+  min-height: 50px;
+  position: relative;
+}
+.screen dt {
+  width: 70px;
+  height: 100%;
+  line-height: 50px;
+  font-size: 14px;
+  color: #7a838d;
+  text-align: center;
+  background: #fafafa;
+}
+.screen dd {
+  flex: 1;
+}
+.dd-top {
+  height: 20px;
+  padding: 15px 0 15px 6px;
+}
+.dd-top a {
+  float: left;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 6px;
+  color: #495056;
+  margin: 0 8px;
+}
+.dd-top a.active {
+  color: #fff !important;
+  background: #1890ff;
+  text-decoration: none;
+}
+.dd-top a:hover {
+  color: #1890ff;
+}
+.carlist {
+  margin: 20px 0;
+}
+.carlist li {
+  float: left;
+  margin-bottom: 10px;
+}
+.carlist li a {
+  display: block;
+  width: 287px;
+  height: 287px;
+  padding: 9px 5px;
+  border: 1px solid transparent;
+  position: relative;
+  box-sizing: content-box;
+}
+.carlist .car-a > img {
+  width: 285px;
+  height: 190px;
+  border: 1px solid #e9e9e9;
+}
+.carlist li a.car-a .t {
+  font-size: 17px;
+  color: #495056;
+  font-weight: 400;
+  padding: 1px 0 6px 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+.carlist li a.car-a .t-i {
+  display: flex;
+  align-items: center;
+  color: #a5abb2;
+  font-size: 14px;
+  padding-left: 4px;
+  padding-bottom: 2px;
+}
+.carlist li a.car-a .t-i .icon-pad {
+  display: inline-block;
+  font-size: 12px;
+  width: 14px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 20px;
+}
+.carlist li a:hover {
+  border: 1px solid #e6e6e6;
+  color: #495056;
+  text-decoration: none;
+  box-shadow: 0 0 5px 2px #e6e6e6;
+}
+.carlist li a.car-a .t-i img {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-left: 4px;
+}
+.carlist li .t-price {
+  font-size: 20px;
+  color: #1890ff;
+  padding-left: 4px;
+}
