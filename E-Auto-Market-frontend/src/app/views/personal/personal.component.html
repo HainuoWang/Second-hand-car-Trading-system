@@ -3,7 +3,7 @@
   <div class="person-main">
     <div class="person-left">
       <p class="user-img"></p>
-      <p class="user-info">Personal Center<span>Email：test@gmail.com</span></p>
+      <p class="user-info">Personal Center<span>Email：{{ user.email }}</span></p>
       <ul class="user-menu">
         <li><a [class.active]="currentUrl === '/personal' || currentUrl === '/personal/order'"
                routerLink="/personal/order">My Order</a></li>

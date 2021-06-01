@@ -9,6 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class SellerComponent implements OnInit {
 
   currentUrl = '';
+  user: any = {};
 
   constructor(
     private router: Router
@@ -18,6 +19,8 @@ export class SellerComponent implements OnInit {
         this.currentUrl = event.url;
       }
     });
+    const user = localStorage.getItem('user');
+    this.user = JSON.parse(user);
   }
 
   ngOnInit(): void {
